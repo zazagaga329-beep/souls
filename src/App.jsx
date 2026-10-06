@@ -53,6 +53,12 @@ function App() {
       })
     }
 
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false)
+      }
+    }
+
     revealItems.forEach((item) => {
       const parent = item.parentElement
       const siblingIndex = siblingIndexes.get(parent) ?? 0
@@ -60,19 +66,22 @@ function App() {
       siblingIndexes.set(parent, siblingIndex + 1)
       observer?.observe(item)
     })
+    window.addEventListener('keydown', handleKeyDown)
     window.addEventListener('scroll', revealVisibleItems, { passive: true })
     window.addEventListener('resize', revealVisibleItems)
     requestAnimationFrame(revealVisibleItems)
 
     return () => {
       observer?.disconnect()
+      window.removeEventListener('keydown', handleKeyDown)
       window.removeEventListener('scroll', revealVisibleItems)
       window.removeEventListener('resize', revealVisibleItems)
     }
   }, [])
 
   return (
-    <main>
+    <>
+      <main>
       <header className="site-header">
         <a className="wordmark" href="#top" aria-label="Пепел — на главную">
           <span className="wordmark-seal" aria-hidden="true">✳</span>
@@ -230,6 +239,7 @@ function App() {
         </div>
       </footer>
     </main>
+    </>
   )
 }
 

@@ -22,7 +22,23 @@
 
 html { scroll-behavior: smooth; scroll-padding-top: 76px; }
 
-body { margin: 0; min-width: 320px; }
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at top, rgba(160, 93, 72, 0.12), transparent 28%),
+    #111210;
+  overflow-x: hidden;
+  cursor: url('/white-katana-cursor-alt.ico') 36 14, auto;
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.08);
+}
+
+@media (pointer: fine) {
+  html, body, button, a, input, textarea, select, [role="button"], summary {
+    cursor: url('/white-katana-cursor-alt.ico') 36 14, auto;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.08));
+  }
+}
 
 button, a { font: inherit; }
 a { color: inherit; }

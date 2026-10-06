@@ -125,16 +125,25 @@ function Games() {
       })
     }
 
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape' && dialogRef.current?.open) {
+        dialogRef.current.close()
+        setActiveGame(null)
+      }
+    }
+
     revealItems.forEach((item, index) => {
       item.style.setProperty('--reveal-delay', `${(index % 3) * 100}ms`)
       observer?.observe(item)
     })
+    window.addEventListener('keydown', handleKeyDown)
     window.addEventListener('scroll', revealVisibleItems, { passive: true })
     window.addEventListener('resize', revealVisibleItems)
     requestAnimationFrame(revealVisibleItems)
 
     return () => {
       observer?.disconnect()
+      window.removeEventListener('keydown', handleKeyDown)
       window.removeEventListener('scroll', revealVisibleItems)
       window.removeEventListener('resize', revealVisibleItems)
     }
@@ -143,6 +152,11 @@ function Games() {
   function openGame(game) {
     setActiveGame(game)
     dialogRef.current?.showModal()
+  }
+
+  function closeGame() {
+    dialogRef.current?.close()
+    setActiveGame(null)
   }
 
   return (
@@ -227,7 +241,16 @@ function Games() {
         <a className="back-top" href="#top">НАВЕРХ ↑</a>
       </footer>
 
-      <dialog className="game-dialog" ref={dialogRef} onClose={() => setActiveGame(null)}>
+      <dialog
+        className="game-dialog"
+        ref={dialogRef}
+        onClose={() => setActiveGame(null)}
+        onClick={(event) => {
+          if (event.target === dialogRef.current) {
+            closeGame()
+          }
+        }}
+      >
         {activeGame && (
           <article className="game-detail">
             <div className="detail-art-wrap">
@@ -239,7 +262,7 @@ function Games() {
                   event.currentTarget.src = activeGame.fallback
                 }}
               />
-              <button className="detail-close" type="button" onClick={() => dialogRef.current?.close()} aria-label="Закрыть описание">×</button>
+              <button className="detail-close" type="button" onClick={closeGame} aria-label="Закрыть описание">×</button>
               <span className="detail-score"><strong>{activeGame.score}</strong><small>ОЦЕНКА «ПЕПЛА»</small></span>
             </div>
             <div className="detail-body">
