@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Manrope', sans-serif;
+  color: #e9e4da;
+  background: #111210;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  --ink: #111210;
+  --paper: #e9e4da;
+  --muted: #a29e95;
+  --red: #a64032;
+  --line: rgba(233, 228, 218, 0.18);
+  --display: 'Cormorant Garamond', Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+
+body { margin: 0; min-width: 320px; }
+
+button, a { font: inherit; }
+a { color: inherit; }
+button { color: inherit; }
+::selection { color: var(--paper); background: var(--red); }
+
+:focus-visible { outline: 2px solid #d27b68; outline-offset: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; transition-delay: 0ms !important; }
+}
