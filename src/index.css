@@ -26,8 +26,9 @@ body {
   margin: 0;
   min-width: 320px;
   background:
-    radial-gradient(circle at top, rgba(160, 93, 72, 0.12), transparent 28%),
-    #111210;
+    radial-gradient(circle at 50% 0%, rgba(112, 90, 82, 0.18), transparent 24%),
+    radial-gradient(circle at 50% 100%, rgba(20, 21, 22, 0.78), transparent 38%),
+    linear-gradient(180deg, #0a0c0b 0%, #090b0a 38%, #0d0f0d 100%);
   overflow-x: hidden;
   cursor: url('/white-katana-cursor-alt.ico') 36 14, auto;
   text-shadow: 0 0 18px rgba(255, 255, 255, 0.08);

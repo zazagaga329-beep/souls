@@ -162,17 +162,17 @@ function Games() {
   return (
     <main className="games-page">
       <header className="site-header games-header">
-        <a className="wordmark" href="/" aria-label="Пепел — на главную">
+        <a className="wordmark" href="./" aria-label="Пепел — на главную">
           <span className="wordmark-seal" aria-hidden="true">✳</span>
           <span>ПЕПЕЛ<span className="wordmark-period">.</span></span>
         </a>
         <nav className="main-nav games-nav" aria-label="Основная навигация">
-          <a href="/#essence">Суть жанра</a>
-          <a href="/#journey">Путь героя</a>
-          <a href="/#codex">Кодекс</a>
-          <a className="is-current" href="/games.html" aria-current="page">Игры</a>
+          <a href="./#essence">Суть жанра</a>
+          <a href="./#journey">Путь героя</a>
+          <a href="./#codex">Кодекс</a>
+          <a className="is-current" href="./games.html" aria-current="page">Игры</a>
         </nav>
-        <a className="header-link" href="/#top">На главную <span aria-hidden="true">↗</span></a>
+        <a className="header-link" href="./#top">На главную <span aria-hidden="true">↗</span></a>
       </header>
 
       <section className="games-intro" id="top">
@@ -236,7 +236,7 @@ function Games() {
       </section>
 
       <footer className="games-footer">
-        <a className="wordmark" href="/"><span className="wordmark-seal" aria-hidden="true">✳</span><span>ПЕПЕЛ<span className="wordmark-period">.</span></span></a>
+        <a className="wordmark" href="./"><span className="wordmark-seal" aria-hidden="true">✳</span><span>ПЕПЕЛ<span className="wordmark-period">.</span></span></a>
         <span>ХРОНИКА ЖАНРА SOULSLIKE</span>
         <a className="back-top" href="#top">НАВЕРХ ↑</a>
       </footer>

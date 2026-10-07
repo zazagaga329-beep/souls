@@ -22,6 +22,24 @@ const vows = [
   },
 ]
 
+const rituals = [
+  {
+    title: 'Мгла в долине',
+    text: 'Туман скрывает дороги, но не исчезает даже у костра. В нём всегда слышно шаги тех, кто не вернулся.',
+    tag: '01 / СЛЕДЫ',
+  },
+  {
+    title: 'Пламя без имени',
+    text: 'Огонь здесь не спасает и не прощает. Он только держит тебя в живых достаточно долго, чтобы сделать выбор.',
+    tag: '02 / ОГОНЬ',
+  },
+  {
+    title: 'Руны под землёй',
+    text: 'Старые символы не предупреждают. Они лишь ждут, когда кто-то решится прочитать их собственную цену.',
+    tag: '03 / ЗАКЛИНАНИЕ',
+  },
+]
+
 function App() {
   const [activeVow, setActiveVow] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -101,7 +119,7 @@ function App() {
           <a href="#essence" onClick={() => setMenuOpen(false)}>Суть жанра</a>
           <a href="#journey" onClick={() => setMenuOpen(false)}>Путь героя</a>
           <a href="#codex" onClick={() => setMenuOpen(false)}>Кодекс</a>
-          <a href="/games.html" onClick={() => setMenuOpen(false)}>Игры</a>
+          <a href="games.html" onClick={() => setMenuOpen(false)}>Игры</a>
         </nav>
         <a className="header-link" href="#codex">
           Войти в бездну <span aria-hidden="true">↗</span>
@@ -111,8 +129,8 @@ function App() {
       <section className="hero" id="top" aria-labelledby="hero-title">
         <img
           className="hero-art"
-          src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=2400&q=88"
-          alt="Тёмный горный лес, скрытый туманом"
+          src="https://upload.wikimedia.org/wikipedia/commons/f/f5/K%C3%B6lner_Dom_von_der_Domplatte.jpg"
+          alt="Кёльнский собор в мрачном свете"
           fetchPriority="high"
         />
         <div className="hero-shade" />
@@ -135,7 +153,7 @@ function App() {
           <a className="primary-link" href="#essence">
             <span>Открыть врата</span><span className="link-arrow" aria-hidden="true">↘</span>
           </a>
-          <a className="hero-archive-link" href="/games.html">
+          <a className="hero-archive-link" href="games.html">
             <span>Листать архив игр</span><span>06 ЗАПИСЕЙ <i aria-hidden="true">↗</i></span>
           </a>
         </div>
@@ -157,6 +175,37 @@ function App() {
           </div>
         </div>
         <div className="manifesto-rule" aria-hidden="true"><span>✳</span></div>
+      </section>
+
+      <section className="ritual-archive section-wrap" id="rites">
+        <div className="section-kicker" data-reveal><span>01 / ПРИЗНАКИ МГЛЫ</span><span>СОБЫТИЯ И ЗНАМЕНИЯ</span></div>
+        <div className="ritual-grid">
+          {rituals.map((ritual, index) => (
+            <article className="ritual-card" key={ritual.title} data-reveal style={{ '--card-delay': `${index * 120}ms` }}>
+              <div className="ritual-card__edge" aria-hidden="true" />
+              <p className="ritual-card__tag">{ritual.tag}</p>
+              <h3>{ritual.title}</h3>
+              <p>{ritual.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="medieval-ornament section-wrap" aria-label="Средневековая вставка">
+        <div className="ornament-rail" aria-hidden="true" />
+        <div className="ornament-frame" data-reveal>
+          <div className="ornament-seal" aria-hidden="true">
+            <span>✦</span>
+          </div>
+          <p className="ornament-kicker">Chronica obscura</p>
+          <h3>Старинная летопись<br />не про героев.<br />Про <em>выдержку.</em></h3>
+          <div className="ornament-meta">
+            <span>Лист 09</span>
+            <span>Герб Пепла</span>
+            <span>Церковь тишины</span>
+          </div>
+        </div>
+        <div className="ornament-rail ornament-rail--right" aria-hidden="true" />
       </section>
 
       <section className="journey" id="journey">
